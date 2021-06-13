@@ -1,8 +1,9 @@
 {
   "name": "node-singleflight",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Prevent duplicate calls at concurrent function calls",
+  "main": "dest/index.js",
+  "types": "dest/index.d.ts",
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^26.0.23",
