@@ -12,13 +12,16 @@ export default class SingleFlight {
                 return runningFn;
             }
             try {
-                const result = await sourceFn(...args)
-                this.map.set(key, result)
-                return result
+                this.map.set(key, sourceFn(...args))
+                return await this.map.get(key)
             } catch (e){
                 this.map.set(key, e)
                 throw e
             }
         }
+    }
+
+    forget(key: string) {
+        this.map.delete(key)
     }
 }
