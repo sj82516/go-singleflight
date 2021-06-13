@@ -17,6 +17,8 @@ export default class SingleFlight {
             } catch (e){
                 this.map.set(key, e)
                 throw e
+            } finally {
+                this.map.delete(key)
             }
         }
     }
