@@ -4,9 +4,8 @@ Highly inspired by Golang singleflight class.
 The Singleflight class would hold all function calls at the same time, execute only execute source function once then copy result to others.
                               
 Singleflight has these feature 
-1. call async / sync function as usual
-2. Throw out error
-3. Full test coverage
+1. call async / sync function / handle exception as usual
+2. 100% test coverage
 
 ## Sample Code
 ```js
