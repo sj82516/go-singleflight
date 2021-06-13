@@ -33,9 +33,34 @@ await Promise.all(promiseList)
 Source function would only run only `once`.
 
 ### Using in express server
-It would be useful to prevent multiple db query when cache invalidate.
+It would be useful to prevent multiple db query when cache invalidate, known as cache penetration.
+
+See the full example in `./example/express-server`
 ```js 
-TBD
+// initial once and pass down by middleware
+const singleFlight = new SingleFlight();
+app.use((req, res, next) => {
+	req.singleFlight = singleFlight
+	next();
+});
+
+app.get('/test-singleflight', async (req, res) => {
+	const key = 'test';
+	let value = await readFromCache(key);
+	if (!value) {
+		try {
+			const protectFn = req.singleFlight.do(key, readFromDb);
+			value = await protectFn(key);
+		}catch (e) {
+			console.error(e)
+		}
+		await setCache(key, value);
+	}
+	
+	return res.json({
+		value
+	});
+});
 ```
 
 ### Forget

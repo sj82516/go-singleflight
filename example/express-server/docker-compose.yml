@@ -1,0 +1,15 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d/:ro
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
