@@ -37,4 +37,22 @@ describe('SingleFlight', () => {
         expect(sourceFn.mock.calls.length).toBe(1)
         expect(returnValue).toBe(expectResult)
     });
+    it('make sure error throw out', async function () {
+        let sourceFn = jest.fn(() => {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    rej("error")
+                }, 1000)
+            })
+        })
+        let protectFn = singleFlight.do('key', sourceFn)
+        for (let i = 0; i < 10; i++) {
+            try {
+                await protectFn()
+            } catch (e) {
+                expect(e).toBe('error')
+            }
+        }
+        expect(sourceFn.mock.calls.length).toBe(1)
+    });
 })
