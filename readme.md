@@ -30,7 +30,7 @@ promiseList.push(protectFn(args1, args2, ...))
 
 await Promise.all(promiseList)
 ```
-Source function would only run only `once`.
+Source function would only run `once`.
 
 ### Using in express server
 It would be useful to prevent multiple db query when cache invalidate, known as cache penetration.
