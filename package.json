@@ -1,9 +1,14 @@
 {
   "name": "go-singleflight",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Prevent duplicate calls at concurrent function calls",
   "main": "dest/index.js",
   "types": "dest/index.d.ts",
+  "homepage": "https://github.com/sj82516/go-singleflight",
+  "readme": "https://github.com/sj82516/go-singleflight/blob/master/readme.md",
+  "bugs": {
+    "url": "https://github.com/sj82516/go-singleflight/issues"
+  },
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^26.0.23",
