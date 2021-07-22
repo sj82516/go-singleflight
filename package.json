@@ -1,6 +1,6 @@
 {
   "name": "go-singleflight",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Prevent duplicate calls at concurrent function calls",
   "main": "dest/index.js",
   "types": "dest/index.d.ts",

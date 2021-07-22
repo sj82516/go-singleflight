@@ -16,7 +16,6 @@ class SingleFlight {
     do(key, sourceFn) {
         return (...args) => __awaiter(this, void 0, void 0, function* () {
             const runningFn = this.map.get(key);
-            console.log(runningFn)
             if (runningFn) {
                 return runningFn;
             }
